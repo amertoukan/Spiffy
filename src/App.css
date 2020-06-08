@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap');
 .App {
   text-align: center;
 }
@@ -26,6 +27,25 @@
 
 .App-link {
   color: #61dafb;
+}
+i :hover{
+  cursor: pointer
+}
+
+.textAnimate {
+  animation: type 15s steps(94);
+  overflow: hidden;
+  white-space: nowrap; 
+  padding: 60
+}
+
+@keyframes type {
+    0% {
+      width: 0ch;
+    }
+    100%{
+      width: 94ch;
+    }
 }
 
 @keyframes App-logo-spin {
