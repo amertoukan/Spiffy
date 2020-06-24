@@ -11,7 +11,7 @@ constructor(props){
     this.state={ 
         loading: false, 
         play: true,
-        playing: true, 
+        playing: false, 
         spotify: {
             device: null,
             deviceType: null,
@@ -32,6 +32,7 @@ async getMyTrack(props){
     const SpotifyPlease = this.props.SWA.getMyCurrentPlaybackState()
         await SpotifyPlease 
             .then(res => {
+                if( res ){
                 this.setState ({
                     playing: res.is_playing, 
                     spotify: {
@@ -44,9 +45,16 @@ async getMyTrack(props){
                             artist: res.item.artists[0].name ? res.item.artists[0].name : ''
                         },
                         popularity: res.popularity ? res.popularity : ''
-                    } 
+                    }
 
-                })
+                })} else { 
+                    this.setState({
+                        nowPlaying: {
+                            song: "Nothing is playing on Spotify.",
+                            artist: 'Please insure something is playing and then try again. '
+                        }
+                    })
+                }
               
             })
 }
@@ -62,7 +70,8 @@ async callToSpotify(props){
         .then(res => this.setState({
             loading: false
         }))
-    setTimeout(this.getMyTrack(), 2500)
+    if(command !== 'pause'){
+    setTimeout(this.getMyTrack(), 2500)}
 }
 componentDidUpdate(){ 
     this.getMyTrack()

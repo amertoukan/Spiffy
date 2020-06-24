@@ -8,7 +8,7 @@ export default class Home extends Component {
             <div style={styles.container}>
                 <h1 style={styles.header}>Spiffy</h1>
                 <p style={styles.text} className="textAnimate">The goal of this application is for users to connect, view and control their spotify accounts.</p>
-                <a href="http://localhost:8888">
+                <a href="http://178.128.227.84:8888/">
                 <Button style={styles.button}> 
                    Log In with Spotify
                 </Button>

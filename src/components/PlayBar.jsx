@@ -36,7 +36,7 @@ return (
 :
 
 <Row> 
-    
+    {console.log(this.props.playing)}
     <Col>
     <Buttons
     style={styles.buttons}
